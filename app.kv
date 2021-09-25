@@ -1,0 +1,54 @@
+# Create your Kivy layout in the kv language here
+BoxLayout:
+    orientation: 'horizontal'
+    GridLayout:
+        size_hint_x: 0.4
+        row:11
+        cols:1
+        Label:
+            text: app.label_sort
+        Spinner:
+            on_text: app.refresh_place_data()
+            text: app.default_selected_item
+            values: app.all_keys
+            id: spinner_sort
+        Label:
+            text: app.label_add_place
+        Label:
+            text: app.label_name
+        TextInput:
+            multiline: False
+            write_tab: False
+            id: name_id
+        Label:
+            text: app.label_country
+        TextInput:
+            multiline: False
+            write_tab: False
+            id: country_id
+        Label:
+            text: app.label_priority
+        TextInput:
+            multiline: False
+            write_tab: False
+            id: priority_id
+        Button:
+            on_press: app.add_place()
+            text: app.button_add_place
+            id: add_place_id
+        Button:
+            on_press: app.clear_all_inputs()
+            text: app.button_clear
+            id: clear_id
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            size_hint_y: 0.1
+            id: label_visit
+        BoxLayout:
+            orientation: 'vertical'
+            id: places_layout_id
+        Label:
+            size_hint_y: 0.1
+            id: label_info
+
